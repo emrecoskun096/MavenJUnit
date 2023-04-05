@@ -10,12 +10,15 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.Select;
 
 import java.time.Duration;
+import java.util.ArrayList;
+import java.util.List;
 
 public abstract class TestBase {
     //TestBase class'ından Obje oluşturmanın önüne geçilmesi için abstract yapılabilir
     //Orn: TestBase base = new TestBase()
     //Bu class'a extends ettiğimiz test classlarından ulaşabiliriz
     protected static WebDriver driver;
+
     @Before
     public void setUp() throws Exception {
         WebDriverManager.chromedriver().setup();
@@ -29,30 +32,36 @@ public abstract class TestBase {
         //Thread.sleep(3000);
         //driver.quit();
     }
+
     //HARD WAIT METHOD
-    public static void bekle(int saniye){
+    public static void bekle(int saniye) {
         try {
-            Thread.sleep(saniye*1000);
+            Thread.sleep(saniye * 1000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
     }
+
     //Alert ACCEPT
-    public static void alertAccept(){
+    public static void alertAccept() {
         driver.switchTo().alert().accept();
     }
+
     //Alert DISMISS
-    public static void alertDismiss(){
+    public static void alertDismiss() {
         driver.switchTo().alert().dismiss();
     }
+
     //Alert getText()
-    public static void alertText(){
+    public static void alertText() {
         driver.switchTo().alert().getText();
     }
+
     //Alert promptBox
-    public static void alertprompt(String text){
+    public static void alertprompt(String text) {
         driver.switchTo().alert().sendKeys(text);
     }
+
     //DropDown VisibleText
     /*
         Select select2 = new Select(gun);
@@ -60,27 +69,35 @@ public abstract class TestBase {
 
         //ddmVisibleText(gun,"7"); --> Yukarıdaki kullanım yerine sadece method ile handle edebilirim
      */
-    public static void ddmVisibleText(WebElement ddm,String secenek){
+    public static void ddmVisibleText(WebElement ddm, String secenek) {
         Select select = new Select(ddm);
         select.selectByVisibleText(secenek);
     }
+
     //DropDown Index
-    public static void ddmIndex(WebElement ddm,int index){
+    public static void ddmIndex(WebElement ddm, int index) {
         Select select = new Select(ddm);
         select.selectByIndex(index);
     }
+
     //DropDown Value
-    public static void ddmValue(WebElement ddm,String secenek){
+    public static void ddmValue(WebElement ddm, String secenek) {
         Select select = new Select(ddm);
         select.selectByValue(secenek);
     }
 
 
+    //SwitchTo: Sayfalar arası geçiş methodu:
+    //Indeks 0'dan başlar
+    //Girilen indeksteki windowHandle değerini alarak o sayfaya geçiş yapar.
+    //SwitchToWindow
+    public static void switchToWindow(int sayi){
+        List<String> tumWindowHandles = new ArrayList<String>(driver.getWindowHandles());
+        driver.switchTo().window(tumWindowHandles.get(sayi));
+    }
+    //SwitchToWindow2
+    public static void window(int sayi){
+        driver.switchTo().window(driver.getWindowHandles().toArray()[sayi].toString());
+    }
 
-
-
-
-
-
-
-}
+    }
