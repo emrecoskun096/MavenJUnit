@@ -25,8 +25,8 @@ driver.get("https://www.jqueryscript.net/demo/Easy-iFrame-based-Twitter-Emoji-Pi
 
 
 // ikinci emojiye tıklayın
-        driver.switchTo().frame(3);
-        driver.findElement(By.xpath("(//*[@data-upgraded=',MaterialRipple'])[2]")).click();
+      driver.switchTo().frame(1);
+      driver.findElement(By.xpath("(//*[@data-upgraded=',MaterialRipple'])[2]")).click();
 
 // İkinci emoji öğelerini yazdırınız
 driver.findElement(By.xpath("//div[@id='nature']"));

@@ -1,5 +1,4 @@
-package day12_WindowHandle_BasicAuth_Cookies;
-
+package day12_WindowHandle_BasicAuth;
 import org.junit.Test;
 import org.openqa.selenium.Cookie;
 import utilities.TestBase;
