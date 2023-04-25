@@ -162,14 +162,61 @@ public abstract class TestBase {
         System.out.println(satirSutun.getText());
     }
 
+    //Bu method ile herhangi bir elemente JS Executer kullanarak tıklayabilirim:
+    public void clickByJS(WebElement element) {
 
+        JavascriptExecutor jsExecuter = (JavascriptExecutor) driver;
+        jsExecuter.executeScript("arguments[0].click();", element);
 
+    }
 
+    //Bu method ile herhangi bir elemente JS Executer kullanarak ekranı kaydırma yapabilirim:
+    public void scrollIntoView(WebElement element) {
 
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView(true);", element);
 
+    }
 
+    //Bu method ile sayfayı en alta kayıdırabilirim:
+    public void scrollEndJS() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollTo(0,document.body.scrollHeight)");
+    }
 
+    //Bu method ile sayfayı en üste kayıdırabilirim:
+    public void scrollTopJS() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollTo(0,-document.body.scrollHeight)");
+    }
 
+    //Bu method sendKeys() methodunun alternatifidir.
+    public void typeWithJS(String text, WebElement element) {
 
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].setAttribute('value','" + text + "')", element);
 
+    }
+
+    //Bu method ile attribute değerlerini alabilirim:
+    public void getValueByJS(String id, String attributeName) {
+
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        String attribute_Value = js.executeScript("return document.getElementById('" + id + "')." + attributeName).toString();
+        System.out.println("Attribute Value: = " + attribute_Value);
+//        NOT: document.querySelector("p").value;  -> TAG KULLANILABILIR
+//             document.querySelector(".example").value; -> CSS DEGERI KULLANILABILIR
+//             document.querySelector("#example").value; -> CSS DEGERI KULLANILABILIR
+
+    }
 }
+
+
+
+
+
+
+
+
+
+
