@@ -1,0 +1,5 @@
+2023-04-28 21:59:08,579 DEBUG d.C01_Log4J [main] Debug logger
+2023-04-28 21:59:08,591 INFO d.C01_Log4J [main] Info logger
+2023-04-28 21:59:08,591 ERROR d.C01_Log4J [main] Error logger
+2023-04-28 21:59:08,591 FATAL d.C01_Log4J [main] Fatal logger
+2023-04-28 21:59:08,592 WARN d.C01_Log4J [main] Warn logger

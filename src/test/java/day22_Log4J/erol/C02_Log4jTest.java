@@ -1,33 +1,32 @@
-package day21_JSExecuter.erol;
-
-
+package day22_Log4J.erol;
 import com.github.javafaker.Faker;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import utilities.TestBase;
 import utilities.TestBaseNight;
 
-public class C01_JSExecutor_Click extends TestBaseNight {
+public class C02_Log4jTest extends TestBaseNight {
     @Test
-    public void clickByJSTest() {
-        /*
-        Eğer bir web sayfasının HTML kodları tamamen yada kısmen JavaScript kullanılarak oluşturulduysa
-     o sayfaya müdahale etmek için genellikle JavaScriptExecutor arayüzünü kullanmak gerekir.
-        Bu durumda, sayfayı manipüle etmek veya etkileşimde bulunmak için standart WebDriver komutları
-     yetersiz kalabilir. Bu nedenle JSExecutor arayüzü, sayfanın JS kodlarına doğrudan erişebilir.
-        Ancak, mümkünse WebDriver'in sunduğu standart yöntemlerle sorunları çözmek her zaman daha iyidir.
-     Çünkü JS kullanımı, sayfanın daha yavaş yüklenmesine neden olabili.
-    */
+    public void log4jTest1() {
+        Logger logger = LogManager.getLogger(C02_Log4jTest.class);
         //http://www.uitestpractice.com/Students/Form sayfasına git
         driver.get("http://www.uitestpractice.com/Students/Form ");
+        logger.info("UITestPractice Sayfasına gidildi");
+        System.out.println("UITestPractice Sayfasına gidildi");
+
 
         //Formu doldur
         Faker faker = new Faker();
         WebElement firstName = driver.findElement(By.id("firstname"));
         firstName.sendKeys(faker.name().firstName(), Keys.TAB,faker.name().lastName(),Keys.TAB,Keys.TAB,Keys.TAB,
                 Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,"Erol");
+        logger.info("Form da istenen bölümler dolduruldu");
+        System.out.println("Form da istenen bölümler dolduruldu");
 
         //Submit tuşuna tıkla
         /*
@@ -44,8 +43,12 @@ public class C01_JSExecutor_Click extends TestBaseNight {
         }
          */
         click(submit);
+        logger.warn("JS kodu kullanılmış olabilir JSExecutor Kullanıldı");
+        System.out.println("JS kodu kullanılmış olabilir JSExecutor Kullanıldı");
 
         //Sayfa adresinin "http://www.uitestpractice.com/Students/Form?optradio=on" olup olduğunu doğrula.
         Assert.assertNotEquals("http://www.uitestpractice.com/Students/Form?optradio=on",driver.getCurrentUrl());
+        logger.info("Istenen Url kontrol edildi");
+        System.out.println("Istenen Url kontrol edildi");
     }
 }

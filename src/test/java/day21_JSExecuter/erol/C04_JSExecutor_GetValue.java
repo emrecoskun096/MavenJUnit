@@ -4,9 +4,9 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
-import utilities.TestBase;
+import utilities.TestBaseNight;
 
-public class C04_JSExecutor_GetValue extends TestBase {
+public class C04_JSExecutor_GetValue extends TestBaseNight {
     @Test
     public void jsgetValueTest() {
         //	2)https://www.carettahotel.com/ a gidiniz

@@ -4,9 +4,9 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
-import utilities.TestBase;
+import utilities.TestBaseNight;
 
-public class C03_JSExecutor_Type extends TestBase {
+public class C03_JSExecutor_Type extends TestBaseNight {
     @Test
     public void typeTest() {
         //Techpro education ana sayfasina git

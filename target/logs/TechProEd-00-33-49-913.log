@@ -1,0 +1,4 @@
+2023-04-29 00:33:49,904 INFO d.e.C02_Log4jTest [main] UITestPractice Sayfasına gidildi
+2023-04-29 00:33:50,655 INFO d.e.C02_Log4jTest [main] Form da istenen bölümler dolduruldu
+2023-04-29 00:33:53,407 WARN d.e.C02_Log4jTest [main] JS kodu kullanılmış olabilir JSExecutor Kullanıldı
+2023-04-29 00:33:53,431 INFO d.e.C02_Log4jTest [main] Istenen Url kontrol edildi

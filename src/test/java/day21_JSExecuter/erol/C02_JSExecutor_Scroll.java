@@ -4,9 +4,9 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
-import utilities.TestBase;
+import utilities.TestBaseNight;
 
-public class C02_JSExecutor_Scroll extends TestBase {
+public class C02_JSExecutor_Scroll extends TestBaseNight {
     JavascriptExecutor js;
 
     @Test
