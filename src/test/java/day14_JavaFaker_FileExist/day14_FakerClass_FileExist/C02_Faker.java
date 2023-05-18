@@ -12,10 +12,11 @@ public class C02_Faker {
         //Faker.instance();
 
         //Firstname yazdıralım
-        System.out.println("Fake firstname : "+faker.name().firstName());
+        System.out.println("Fake firstname : " + faker.name().firstName());
         System.out.println(Faker.instance().name().firstName());
-
-        //Lastname yazdıralım
+/**
+ Lastname yazdıralım
+ */
         System.out.println(faker.name().lastName());
 
         //Kullanıcı adi yazdıralım
@@ -47,7 +48,6 @@ public class C02_Faker {
         //email adress
         System.out.println(Faker.instance().internet().emailAddress());
     }
-
 
 
 }

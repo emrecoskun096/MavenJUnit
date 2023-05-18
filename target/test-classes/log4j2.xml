@@ -80,3 +80,53 @@
 </Loggers>
 
 </Configuration>
+
+        <?xml version="1.0" encoding="UTF-8"?>
+
+        -<Configuration status="INFO">
+
+
+-<Appenders>
+
+    <!--Log kayıtlarını Consola yazdırır -->
+
+
+
+    -<Console target="SYSTEM_OUT" name="Console">
+
+    <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+
+</Console>
+
+
+    -<File name="File" append="true" fileName="selenium.log">
+
+    <!--Logları test çalışırken ekler -->
+
+
+    <PatternLayout pattern="%d{dd.MM.yyyy HH:mm:ss} %c %m%n"/>
+
+</File>
+
+</Appenders>
+
+
+-<Loggers>
+
+    <!--Hangi seviyede loglama yapılacağı belirtilir -->
+
+
+
+    -<Root level="INFO">
+
+    <AppenderRef ref="Console"/>
+
+    <AppenderRef ref="File"/>
+
+</Root>
+
+</Loggers>
+
+</Configuration>
+
+
